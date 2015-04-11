@@ -18,7 +18,7 @@ Pod::Spec.new do |s|
 
   s.author             = { "李帅" => "spaceli@me.com" }
 
-  s.source       = { :git => "https://github.com/spaceli/LSFramework.git", :tag => "1.0.0" }
+  s.source       = { :git => "https://github.com/spaceli/LSFramework.git", :tag => s.version }
 
 
   # ――― Source Code ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
@@ -29,7 +29,7 @@ Pod::Spec.new do |s|
   #  Not including the public_header_files will make all headers public.
   #
 
-  s.source_files  = "LSFramework", "LSFramework/**/*.{h,m}"
+  s.source_files  = "LSFramework/**/*.{h,m}"
 
   # s.exclude_files = "Classes/Exclude"
 
