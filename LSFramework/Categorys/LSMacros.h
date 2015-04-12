@@ -36,6 +36,24 @@
 #define NSDump(s) 
 #endif
 
+#define within_main_thread(block,...) \
+if ([[NSThread currentThread] isMainThread]) { \
+if (block) { \
+block(__VA_ARGS__); \
+} \
+} else { \
+if (block) { \
+dispatch_async(dispatch_get_main_queue(), ^(){ \
+block(__VA_ARGS__); \
+}); \
+} \
+}
+
+#define within_background_thread(block,...) \
+dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{ \
+block(__VA_ARGS__); \
+});
+
 //标记废弃方法
 #define LS_DEPRECATED  NS_DEPRECATED_IOS(2_0, 4_0)
 

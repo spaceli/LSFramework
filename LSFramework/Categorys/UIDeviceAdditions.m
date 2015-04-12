@@ -51,10 +51,6 @@
 //    return NO;
 }
 
-+ (int)reboot {
-	system("echo alpine | su root");
-	return system("reboot");
-}
 
 @end
 

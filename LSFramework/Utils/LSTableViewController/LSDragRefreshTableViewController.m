@@ -70,13 +70,13 @@
         if (scrollView.isDragging && scrollView.contentOffset.y+scrollView.height >= scrollView.contentSize.height+kLoadingMoreGap && !_isLoading) {//加载更多方式的展示
             LSTableMoreItem *item = [self.items lastObject];
             if ([item isKindOfClass:[LSTableMoreItem class]]) {
-                LSTableMoreCell *moreCell = (LSTableMoreCell *)[_tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:self.items.count-1 inSection:0]];
+                LSTableMoreCell *moreCell = (LSTableMoreCell *)[self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:self.items.count-1 inSection:0]];
                 moreCell.moreTextLabel.text = @"松开加载更多";
             }
         }else if (scrollView.contentOffset.y+scrollView.height < scrollView.contentSize.height+kLoadingMoreGap) {
             LSTableMoreItem *item = [self.items lastObject];
             if ([item isKindOfClass:[LSTableMoreItem class]]) {
-                LSTableMoreCell *moreCell = (LSTableMoreCell *)[_tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:self.items.count-1 inSection:0]];
+                LSTableMoreCell *moreCell = (LSTableMoreCell *)[self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:self.items.count-1 inSection:0]];
                 if (moreCell.loading == NO) {
                     moreCell.moreTextLabel.text = @"上拉加载更多";
                 }
@@ -93,7 +93,7 @@
         if (scrollView.contentOffset.y+scrollView.height > scrollView.contentSize.height+kLoadingMoreGap && !_isLoading) {//实现上拉加载更多
             LSTableMoreItem *item = [self.items lastObject];
             if ([item isKindOfClass:[LSTableMoreItem class]]) {
-                UITableViewCell *cell = [_tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:self.items.count-1 inSection:0]];
+                UITableViewCell *cell = [self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:self.items.count-1 inSection:0]];
                 LSTableMoreCell *moreCell = (LSTableMoreCell *)cell;
                 if (moreCell.loading == NO) {
                     

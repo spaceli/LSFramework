@@ -21,14 +21,10 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 typedef enum {
     LSScrollViewDirectionUp     = 0,    //0x000
     LSScrollViewDirectionDown   = 1,    //0x001
-    LSScrollViewDirectionLeft   = 2,    //0x010
-    LSScrollViewDirectionRight  = 4,    //0x100
 }LSScrollViewDirection;
 
-@interface LSTableViewController : UIViewController <UITableViewDataSource,UITableViewDelegate> {
-    UITableView *_tableView;
-    NSMutableArray *_items;
-}
+@interface LSTableViewController : UIViewController <UITableViewDataSource,UITableViewDelegate>
+
 @property (nonatomic,strong)UITableView *tableView;
 @property (nonatomic,assign)UITableViewStyle tableStyle;
 
@@ -49,31 +45,25 @@ typedef enum {
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////////////////////////
-@interface LSTableItem : NSObject {
-    NSString *_cellClassName;
-    int _cellHeight;
-    __weak id  _target;
-    SEL _selectAction;
-}
+@interface LSTableItem : NSObject
+
 @property (nonatomic,copy)NSString *cellClassName;
 @property (nonatomic,weak)id target;
 @property (nonatomic,assign)SEL selectAction;
 @property (nonatomic,assign)int cellHeight;
+
 - (void)setSelectAction:(SEL)selectAction target:(id)target;
 - (int)cellHeightWithWidth:(int)width;
 @end
 
-@interface LSTableCell : UITableViewCell {
-    LSTableItem *_item;
-}
+@interface LSTableCell : UITableViewCell
 @property (nonatomic,strong)LSTableItem *item;
 - (id)initWithStyle:(UITableViewCellStyle)style;
 @end
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
-@interface LSTableTitleItem : LSTableItem {
-    NSString *_title;
-}
+@interface LSTableTitleItem : LSTableItem 
+
 @property (nonatomic,copy)NSString *title;
 @property (nonatomic,strong)UIFont *font;
 @property (nonatomic,strong)UIColor *textColor;
@@ -96,9 +86,7 @@ typedef enum {
 - (id)initWithTitle:(NSString *)title control:(UIControl *)control;
 @end
 
-@interface LSTableControlCell : LSTableCell {
-    
-}
+@interface LSTableControlCell : LSTableCell
 @end
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////

@@ -138,10 +138,6 @@
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 @implementation LSTableItem
-@synthesize cellClassName = _cellClassName;
-@synthesize cellHeight = _cellHeight;
-@synthesize target = _target;
-@synthesize selectAction = _selectAction;
 
 - (id)init {
     self = [super init];
@@ -167,7 +163,6 @@
 
 @implementation LSTableCell
 
-@synthesize item = _item;
 - (id)initWithStyle:(UITableViewCellStyle)style {
     self = [super initWithStyle:style reuseIdentifier:[[self class] description]];
     self.selectionStyle = UITableViewCellSelectionStyleNone;
@@ -181,9 +176,6 @@
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 @implementation LSTableTitleItem
 
-@synthesize title = _title;
-@synthesize font = _font;
-@synthesize textColor = _textColor;
 - (id)initWithTitle:(NSString *)title {
     self = [super init];
     if (self) {
@@ -224,8 +216,6 @@
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 @implementation LSTableControlItem
 
-@synthesize title = _title;
-@synthesize control = _control;
 - (id)initWithTitle:(NSString *)title control:(UIControl *)control {
     self = [super init];
     if (self) {
@@ -265,10 +255,6 @@
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 @implementation LSTableDetailItem
 
-@synthesize icon = _icon;
-@synthesize title = _title;
-@synthesize detail = _detail;
-@synthesize accessIcon = _accessIcon;
 - (id)initWithTitle:(NSString *)title detail:(NSString *)detail {
     return [self initWithIcon:nil title:title detail:detail accessIcon:nil];
 }
